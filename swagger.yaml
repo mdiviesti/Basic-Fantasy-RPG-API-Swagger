@@ -1,10 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  description: "This is a sample server Petstore server.  You can find out more about\
-    \ Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).\
-    \  For this sample, you can use the api key `special-key` to test the authorization\
-    \ filters."
+  description: "This documentation shows you how to interact with the Basic Fantasy RPG API. While it does use my own server to make these requests, it is highly reommended for you to clone and run https://github.com/mdiviesti/Basic-Fantasy-RPG-API on your own server as ttrpgkit.com has limited resources."
   version: "1.0.5"
   title: "Swagger Petstore"
   termsOfService: "http://swagger.io/terms/"
@@ -13,11 +10,11 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "petstore.swagger.io"
-basePath: "/v2"
+host: "bfrpg.ttrpgkit.com"
+basePath: "/"
 tags:
-- name: "pet"
-  description: "Everything about your Pets"
+- name: "races"
+  description: "Endpoints regarding the Races"
   externalDocs:
     description: "Find out more"
     url: "http://swagger.io"
@@ -32,34 +29,17 @@ schemes:
 - "https"
 - "http"
 paths:
-  /pet/{petId}/uploadImage:
-    post:
+  /races:
+    get:
       tags:
-      - "pet"
-      summary: "uploads an image"
+      - "races"
+      summary: "Get all records for all races"
       description: ""
-      operationId: "uploadFile"
+      operationId: "getAllRaces"
       consumes:
       - "multipart/form-data"
       produces:
       - "application/json"
-      parameters:
-      - name: "petId"
-        in: "path"
-        description: "ID of pet to update"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "additionalMetadata"
-        in: "formData"
-        description: "Additional data to pass to server"
-        required: false
-        type: "string"
-      - name: "file"
-        in: "formData"
-        description: "file to upload"
-        required: false
-        type: "file"
       responses:
         200:
           description: "successful operation"
